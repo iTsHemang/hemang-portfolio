@@ -384,6 +384,125 @@
             color: white;
         }
 
+        /* CAROUSEL STYLES */
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1b2838;
+            border: 2px solid #0055cc;
+            border-radius: 3px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a0e1a;
+            position: relative;
+        }
+
+        .carousel-slide img,
+        .carousel-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* CAROUSEL CONTROLS */
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .carousel: hover .carousel-controls {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .carousel-btn {
+            background: linear-gradient(135deg, rgba(0, 136, 255, 0.8), rgba(0, 85, 204, 0.8));
+            color: white;
+            border: 2px solid #00ffff;
+            width: 50px;
+            height: 50px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-weight: bold;
+        }
+
+        .carousel-btn:hover {
+            background: linear-gradient(135deg, #00ccff, #0088ff);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+
+        /* CAROUSEL INDICATORS */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 9;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .indicator.active {
+            background: #00ffff;
+            border-color: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .indicator: hover {
+            background: rgba(0, 255, 255, 0.6);
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .header h1 {
@@ -504,7 +623,31 @@
                             <div class="game-title">Throttle Up</div>
                             <div class="game-type">Racing Game</div>
                         </div>
-                        <div class="game-image" <img src="TU/TU_B.png">[Gameplay Screenshot]</div>
+                        <div class="carousel" id="carousel1">
+                        <div class="carousel-container">
+                            <div class="carousel-slides" id="slides1">
+                                <div class="carousel-slide">
+                                    <img src="TU/TU_B.png" alt="Throttle Up Banner">
+                                </div>
+                                <div class="carousel-slide">
+                                    <video controls autoplay muted>
+                                            <source src="TU/TU_B_V.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="TU/TU_1.png" alt="Screenshot 1">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="TU/TU_2.png" alt="Screenshot 2">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="TU/TU_3.png" alt="Screenshot 3">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="TU/TU_4.png" alt="Screenshot 4">
+                                </div>
+                            </div>
+                        </div>
                         <div class="game-content">
                             <p class="game-description">
                                 Arcade-style racing game with advanced vehicle physics using Unreal's Chaos system. Complete race logic with checkpoints, lap tracking, and dynamic difficulty scaling.
