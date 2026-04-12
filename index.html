@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemang Chudasama - Game Programmer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #0b0e11;
+            color: #c7d5e0;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* HEADER - HERO */
+        .header {
+            background: linear-gradient(135deg, #1b2838 0%, #0b0e11 100%);
+            padding: 60px 20px;
+            border-bottom: 1px solid #1a3a52;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            color: #ffffff;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #8dbce8;
+            margin-bottom: 24px;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1b9ae4 0%, #0d5f9b 100%);
+            color: white;
+            padding: 10px 24px;
+            border: 1px solid #0d7cb5;
+            border-radius: 3px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #2bbce8 0%, #1a7cb5 100%);
+            border-color: #1a9be8;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            padding: 40px 20px;
+            background: #1b2838;
+            border-bottom: 1px solid #1a3a52;
+        }
+
+        .section-header {
+            font-size: 24px;
+            color: #c7d5e0;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #2d5aa6;
+            font-weight: 400;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .about-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #b0bcc4;
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+        }
+
+        .stats-box {
+            background: #0b0e11;
+            border: 1px solid #2d5aa6;
+            padding: 20px;
+            border-radius: 3px;
+        }
+
+        .stat-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #2d5aa6;
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            color: #1b9ae4;
+            font-weight: 600;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #8dbce8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        /* PROJECTS SECTION */
+        .projects-section {
+            padding: 40px 20px;
+            background: #0b0e11;
+        }
+
+        .engine-group {
+            margin-bottom: 60px;
+        }
+
+        .engine-title {
+            font-size: 20px;
+            color: #c7d5e0;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #2d5aa6;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background: #1b2838;
+            border: 1px solid #2d5aa6;
+            overflow: hidden;
+            transition: all 0.2s;
+            border-radius: 3px;
+        }
+
+        .game-card:hover {
+            border-color: #1b9ae4;
+            box-shadow: 0 8px 24px rgba(27, 154, 228, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .game-header {
+            background: linear-gradient(135deg, #1b9ae4 0%, #0d5f9b 100%);
+            padding: 16px;
+            color: white;
+        }
+
+        .game-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .game-type {
+            font-size: 12px;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .game-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #0b0e11;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a5f7f;
+            font-size: 12px;
+            border-bottom: 1px solid #2d5aa6;
+        }
+
+        .game-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .game-content {
+            padding: 16px;
+        }
+
+        .game-description {
+            font-size: 13px;
+            color: #b0bcc4;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .game-systems {
+            background: #0b0e11;
+            border-left: 3px solid #1b9ae4;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 2px;
+        }
+
+        .systems-title {
+            font-size: 11px;
+            color: #8dbce8;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .systems-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .system-tag {
+            font-size: 11px;
+            background: #2d5aa6;
+            color: #b0bcc4;
+            padding: 3px 6px;
+            border-radius: 2px;
+        }
+
+        .game-meta {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .meta-badge {
+            font-size: 11px;
+            background: #2d5aa6;
+            color: #8dbce8;
+            padding: 3px 8px;
+            border-radius: 2px;
+            font-weight: 500;
+        }
+
+        .game-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .link-btn {
+            flex: 1;
+            padding: 8px;
+            background: #2d5aa6;
+            color: #c7d5e0;
+            border: 1px solid #1b9ae4;
+            border-radius: 2px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .link-btn:hover {
+            background: #1b9ae4;
+            color: white;
+        }
+
+        /* SKILLS SECTION */
+        .skills-section {
+            padding: 40px 20px;
+            background: #1b2838;
+            border-bottom: 1px solid #1a3a52;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-box {
+            background: #0b0e11;
+            border: 1px solid #2d5aa6;
+            padding: 16px;
+            border-radius: 3px;
+        }
+
+        .skill-box h4 {
+            font-size: 13px;
+            color: #1b9ae4;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            font-size: 13px;
+            color: #b0bcc4;
+            padding: 6px 0;
+            border-bottom: 1px solid #2d5aa6;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            padding: 40px 20px;
+            background: #0b0e11;
+            border-top: 1px solid #1a3a52;
+            text-align: center;
+        }
+
+        .contact-text {
+            font-size: 14px;
+            color: #b0bcc4;
+            margin-bottom: 24px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            padding: 10px 20px;
+            background: #2d5aa6;
+            color: #c7d5e0;
+            border: 1px solid #1b9ae4;
+            border-radius: 3px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .contact-btn:hover {
+            background: #1b9ae4;
+            color: white;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            .game-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="container">
+            <h1>HEMANG CHUDASAMA</h1>
+            <p>Game Programmer • Unreal Engine • C++</p>
+            <div class="header-buttons">
+                <a href="mailto:hemangdchudasama@gmail.com" class="btn-primary">Contact Me</a>
+                <a href="https://linkedin.com/in/hemangchudasama" target="_blank" class="btn-primary">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="about-section">
+        <div class="container">
+            <h2 class="section-header">About</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        Game programmer with 2+ years of experience shipping games in Unreal Engine and Unity. I specialize in gameplay systems, physics mechanics, and building robust technical foundations that make games play great.
+                    </p>
+                    <p>
+                        Currently focused on Unreal Engine development with both C++ and Blueprint. I've shipped multiple games and mechanics, and I'm always pushing to build better systems, optimize performance, and ship quality experiences.
+                    </p>
+                    <p>
+                        Looking to join a team building great games. Whether it's gameplay programming, systems design, or technical implementation—I'm ready to contribute.
+                    </p>
+                </div>
+                <div class="stats-box">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Unreal Projects<br>(1 Game + 4 Mechanics)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Unity Games<br>(Published)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2+</div>
+                        <div class="stat-label">Years<br>Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- UNREAL ENGINE PROJECTS -->
+    <div class="projects-section">
+        <div class="container">
+            <div class="engine-group">
+                <h3 class="engine-title">Unreal Engine 5 Projects</h3>
+                
+                <div class="projects-container">
+                    <!-- Throttle Up Game -->
+                    <div class="game-card">
+                        <div class="game-header">
+                            <div class="game-title">Throttle Up</div>
+                            <div class="game-type">Racing Game</div>
+                        </div>
+                        <div class="game-image">[Gameplay Screenshot]</div>
+                        <div class="game-content">
+                            <p class="game-description">
+                                Arcade-style racing game with advanced vehicle physics using Unreal's Chaos system. Complete race logic with checkpoints, lap tracking, and dynamic difficulty scaling.
+                            </p>
+                            <div class="game-meta">
+                                <span class="meta-badge">Unreal 5</span>
+                                <span class="meta-badge">C++</span>
+                                <span class="meta-badge">Blueprint</span>
+                            </div>
+                            <div class="game-systems">
+                                <div class="systems-title">Core Systems</div>
+                                <div class="systems-tags">
+                                    <span class="system-tag">Vehicle Physics</span>
+                                    <span class="system-tag">Race Logic</span>
+                                    <span class="system-tag">Checkpoints</span>
+                                    <span class="system-tag">UI/HUD</span>
+                                </div>
+                            </div>
+                            <div class="game-links">
+                                <a href="#" class="link-btn">Play Game</a>
+                                <a href="#" class="link-btn">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SpaceShip Mechanics -->
+                    <div class="game-card">
+                        <div class="game-header">
+                            <div class="game-title">SpaceShip Controls</div>
+                            <div class="game-type">Gameplay Mechanic</div>
+                        </div>
+                        <div class="game-image">[Mechanic Screenshot]</div>
+                        <div class="game-content">
+                            <p class="game-description">
+                                Arcade-style flight control system. Responsive input handling for throttle, roll, yaw, and pitch with boost mechanics. Built for feel and responsiveness.
+                            </p>
+                            <div class="game-meta">
+                                <span class="meta-badge">Unreal Engine</span>
+                                <span class="meta-badge">C++</span>
+                                <span class="meta-badge">Physics</span>
+                            </div>
+                            <div class="game-systems">
+                                <div class="systems-title">Core Systems</div>
+                                <div class="systems-tags">
+                                    <span class="system-tag">Input System</span>
+                                    <span class="system-tag">Flight Physics</span>
+                                    <span class="system-tag">Boost System</span>
+                                </div>
+                            </div>
+                            <div class="game-links">
+                                <a href="#" class="link-btn">Try Demo</a>
+                                <a href="#" class="link-btn">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grappling Mechanics -->
+                    <div class="game-card">
+                        <div class="game-header">
+                            <div class="game-title">Grappling System</div>
+                            <div class="game-type">Gameplay Mechanic</div>
+                        </div>
+                        <div class="game-image">[Mechanic Screenshot]</div>
+                        <div class="game-content">
+                            <p class="game-description">
+                                First-person grappling hook mechanic with wall and ceiling latching. Features adjustable range, smooth rope physics, dynamic rappelling, and responsive feedback.
+                            </p>
+                            <div class="game-meta">
+                                <span class="meta-badge">Unreal Engine</span>
+                                <span class="meta-badge">C++</span>
+                                <span class="meta-badge">Mechanics</span>
+                            </div>
+                            <div class="game-systems">
+                                <div class="systems-title">Core Systems</div>
+                                <div class="systems-tags">
+                                    <span class="system-tag">Grapple Hook</span>
+                                    <span class="system-tag">Wall Detection</span>
+                                    <span class="system-tag">Rope Physics</span>
+                                    <span class="system-tag">Latching</span>
+                                </div>
+                            </div>
+                            <div class="game-links">
+                                <a href="#" class="link-btn">Try Demo</a>
+                                <a href="#" class="link-btn">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mouse Interaction -->
+                    <div class="game-card">
+                        <div class="game-header">
+                            <div class="game-title">Interaction System</div>
+                            <div class="game-type">Gameplay Mechanic</div>
+                        </div>
+                        <div class="game-image">[System Screenshot]</div>
+                        <div class="game-content">
+                            <p class="game-description">
+                                Reusable interaction component for object manipulation. Features hover detection, click handling, configurable feedback, and clean architecture for easy integration into any project.
+                            </p>
+                            <div class="game-meta">
+                                <span class="meta-badge">Unreal Engine</span>
+                                <span class="meta-badge">Component</span>
+                                <span class="meta-badge">Reusable</span>
+                            </div>
+                            <div class="game-systems">
+                                <div class="systems-title">Core Systems</div>
+                                <div class="systems-tags">
+                                    <span class="system-tag">Raycasting</span>
+                                    <span class="system-tag">Input Handling</span>
+                                    <span class="system-tag">Component System</span>
+                                    <span class="system-tag">Feedback</span>
+                                </div>
+                            </div>
+                            <div class="game-links">
+                                <a href="#" class="link-btn">Try Demo</a>
+                                <a href="#" class="link-btn">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNITY GAMES -->
+            <div class="engine-group">
+                <h3 class="engine-title">Unity Games</h3>
+                
+                <div class="projects-container">
+                    <!-- Blox -->
+                    <div class="game-card">
+                        <div class="game-header">
+                            <div class="game-title">Blox</div>
+                            <div class="game-type">Puzzle Game</div>
+                        </div>
+                        <div class="game-image">[Game Screenshot]</div>
+                        <div class="game-content">
+                            <p class="game-description">
+                                Published puzzle game with randomized block spawning and endless gameplay. Features combo mechanics, persistent high-score tracking, and online leaderboard integration.
+                            </p>
+                            <div class="game-meta">
+                                <span class="meta-badge">Unity 2D</span>
+                                <span class="meta-badge">Published</span>
+                            </div>
+                            <div class="game-systems">
+                                <div class="systems-title">Core Systems</div>
+                                <div class="systems-tags">
+                                    <span class="system-tag">Spawn Algorithm</span>
+                                    <span class="system-tag">Scoring</span>
+                                    <span class="system-tag">Leaderboard</span>
+                                    <span class="system-tag">Combos</span>
+                                </div>
+                            </div>
+                            <div class="game-links">
+                                <a href="#" class="link-btn">Play on Itch</a>
+                                <a href="#" class="link-btn">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- P Shooter -->
+                    <div class="game-card">
+                        <div class="game-header">
+                            <div class="game-title">P Shooter</div>
+                            <div class="game-type">Rogue-Lite Action</div>
+                        </div>
+                        <div class="game-image">[Game Screenshot]</div>
+                        <div class="game-content">
+                            <p class="game-description">
+                                Action rogue-lite game with deep progression systems. Features XP-based leveling, dynamic weapon selection, branching upgrade trees, and procedural difficulty scaling.
+                            </p>
+                            <div class="game-meta">
+                                <span class="meta-badge">Unity 2D</span>
+                                <span class="meta-badge">Rogue-Lite</span>
+                            </div>
+                            <div class="game-systems">
+                                <div class="systems-title">Core Systems</div>
+                                <div class="systems-tags">
+                                    <span class="system-tag">XP System</span>
+                                    <span class="system-tag">Weapon Upgrades</span>
+                                    <span class="system-tag">Difficulty Scaling</span>
+                                    <span class="system-tag">Progression</span>
+                                </div>
+                            </div>
+                            <div class="game-links">
+                                <a href="#" class="link-btn">Play on Itch</a>
+                                <a href="#" class="link-btn">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stellar Wings -->
+                    <div class="game-card">
+                        <div class="game-header">
+                            <div class="game-title">Stellar Wings</div>
+                            <div class="game-type">Action-Adventure</div>
+                        </div>
+                        <div class="game-image">[Game Screenshot]</div>
+                        <div class="game-content">
+                            <p class="game-description">
+                                Action-adventure game with complete UI/UX implementation. Features custom artwork, responsive interactions, smooth menus, and polished gameplay experience.
+                            </p>
+                            <div class="game-meta">
+                                <span class="meta-badge">Unity 3D</span>
+                                <span class="meta-badge">Adventure</span>
+                            </div>
+                            <div class="game-systems">
+                                <div class="systems-title">Core Systems</div>
+                                <div class="systems-tags">
+                                    <span class="system-tag">UI System</span>
+                                    <span class="system-tag">Interactions</span>
+                                    <span class="system-tag">Navigation</span>
+                                    <span class="system-tag">Polish</span>
+                                </div>
+                            </div>
+                            <div class="game-links">
+                                <a href="#" class="link-btn">Play on Itch</a>
+                                <a href="#" class="link-btn">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="skills-section">
+        <div class="container">
+            <h2 class="section-header">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-box">
+                    <h4>Game Engines</h4>
+                    <ul class="skill-list">
+                        <li>Unreal Engine 5</li>
+                        <li>C++ Programming</li>
+                        <li>Blueprint Visual Scripting</li>
+                        <li>Physics Systems</li>
+                        <li>Game Logic & State</li>
+                    </ul>
+                </div>
+                <div class="skill-box">
+                    <h4>Gameplay Systems</h4>
+                    <ul class="skill-list">
+                        <li>Vehicle Physics</li>
+                        <li>Character Mechanics</li>
+                        <li>Progression Systems</li>
+                        <li>UI/UX Implementation</li>
+                        <li>Interaction Systems</li>
+                    </ul>
+                </div>
+                <div class="skill-box">
+                    <h4>Additional</h4>
+                    <ul class="skill-list">
+                        <li>Unity 2D/3D</li>
+                        <li>Performance Optimization</li>
+                        <li>Systems Architecture</li>
+                        <li>Git & Version Control</li>
+                        <li>Problem Solving</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-section">
+        <div class="container">
+            <h2 class="section-header">Get In Touch</h2>
+            <p class="contact-text">
+                I'm actively looking for opportunities to build great games. Let's talk about your project or position.
+            </p>
+            <div class="contact-buttons">
+                <a href="mailto:hemangdchudasama@gmail.com" class="contact-btn">Email</a>
+                <a href="https://linkedin.com/in/hemangchudasama" target="_blank" class="contact-btn">LinkedIn</a>
+                <a href="https://github.com/hemangchudasama" target="_blank" class="contact-btn">GitHub</a>
+                <a href="tel:+919510934365" class="contact-btn">Call</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
