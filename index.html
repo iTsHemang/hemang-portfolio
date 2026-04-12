@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: "Motiva Sans", Sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #0b0e11;
             color: #c7d5e0;
             line-height: 1.5;
@@ -159,7 +159,7 @@
 
         .projects-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(3, 2fr);
             gap: 20px;
         }
 
@@ -342,56 +342,13 @@
             border-bottom: none;
         }
 
-        /* CONTACT SECTION */
-        .contact-section {
-            padding: 40px 20px;
-            background: #0b0e11;
-            border-top: 1px solid #1a3a52;
-            text-align: center;
-        }
-
-        .contact-text {
-            font-size: 14px;
-            color: #b0bcc4;
-            margin-bottom: 24px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-buttons {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .contact-btn {
-            padding: 10px 20px;
-            background: #2d5aa6;
-            color: #c7d5e0;
-            border: 1px solid #1b9ae4;
-            border-radius: 3px;
-            font-size: 13px;
-            font-weight: 500;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .contact-btn:hover {
-            background: #1b9ae4;
-            color: white;
-        }
-
-        /* CAROUSEL STYLES */
+        /* CAROUSEL IN CARD */
         .carousel {
             position: relative;
             width: 100%;
-            margin: 0 auto;
-            background: #1b2838;
-            overflow: hidden;
             aspect-ratio: 16/9;
+            background: #0a0e1a;
+            overflow: hidden;
         }
 
         .carousel-container {
@@ -426,6 +383,37 @@
             display: block;
         }
 
+        /* CAROUSEL INDICATORS */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 9;
+        }
+
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .indicator.active {
+            background: #00ffff;
+            border-color: #00ffff;
+            box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+        }
+
+        .indicator:hover {
+            background: rgba(0, 255, 255, 0.6);
+        }
+
         /* CAROUSEL CONTROLS */
         .carousel-controls {
             position: absolute;
@@ -435,65 +423,38 @@
             transform: translateY(-50%);
             display: flex;
             justify-content: space-between;
-            padding: 0 15px;
+            padding: 0 10px;
             opacity: 0;
             transition: opacity 0.3s;
             pointer-events: none;
             z-index: 10;
         }
 
-        .carousel: hover .carousel-controls {
+        .carousel:hover .carousel-controls {
             opacity: 1;
             pointer-events: auto;
         }
 
         .carousel-btn {
-            color: white;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
+            border-radius: 3px;
+            border: 2px solid #0088ff;
+            background: linear-gradient(135deg, rgba(0, 136, 255, 0.15), rgba(0, 85, 204, 0.1));
+            color: #00ffff;
+            font-size: 20px;
+            font-weight: bold;
             cursor: pointer;
-            font-size: 24px;
+            transition: all 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s;
-            font-weight: bold;
         }
 
         .carousel-btn:hover {
-            background: linear-gradient(135deg, #00ccff, #0088ff);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-        }
-
-        /* CAROUSEL INDICATORS */
-        .carousel-indicators {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 9;
-        }
-
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .indicator.active {
-            background: #00ffff;
+            background: linear-gradient(135deg, rgba(0, 136, 255, 0.3), rgba(0, 85, 204, 0.2));
             border-color: #00ffff;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-        }
-
-        .indicator: hover {
-            background: rgba(0, 255, 255, 0.6);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
         }
 
         /* RESPONSIVE */
@@ -615,7 +576,23 @@
                             <div class="game-title">Throttle Up</div>
                             <div class="game-type">Racing Game</div>
                         </div>
-                        <div class="game-image">[Game Screenshot]</div>
+                        <div class="carousel" id="carousel1">
+							<div class="carousel-container">
+								<div class="carousel-slides" id="slides1">
+									<div class="carousel-slide"><img src="TU/TU_B.png" alt="Banner"></div>
+									<div class="carousel-slide"><video controls muted autoplay><source src="TU/TU_V.mp4" type="video/mp4"></video></div>
+									<div class="carousel-slide"><img src="TU/TU_1.png" alt="Screenshot 1"></div>
+									<div class="carousel-slide"><img src="TU/TU_2.png" alt="Screenshot 2"></div>
+									<div class="carousel-slide"><img src="TU/TU_3.png" alt="Screenshot 3"></div>
+									<div class="carousel-slide"><img src="TU/TU_4.png" alt="Screenshot 4"></div>
+								</div>
+							</div>
+							<div class="carousel-controls">
+								<button class="carousel-btn" onclick="previousSlide('carousel1')">‹</button>
+								<button class="carousel-btn" onclick="nextSlide('carousel1')">›</button>
+							</div>
+							<div class="carousel-indicators" id="indicators1"></div>
+						</div>
                         <div class="game-content">
                             <p class="game-description">
                                 Arcade-style racing game with advanced vehicle physics using Unreal's Chaos system. Complete race logic with checkpoints, lap tracking, and dynamic difficulty scaling.
