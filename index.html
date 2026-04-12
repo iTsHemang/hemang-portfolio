@@ -390,8 +390,6 @@
             width: 100%;
             margin: 0 auto;
             background: #1b2838;
-            border: 2px solid #0055cc;
-            border-radius: 3px;
             overflow: hidden;
             aspect-ratio: 16/9;
         }
@@ -418,7 +416,6 @@
             align-items: center;
             justify-content: center;
             background: #0a0e1a;
-            position: relative;
         }
 
         .carousel-slide img,
@@ -451,12 +448,9 @@
         }
 
         .carousel-btn {
-            background: linear-gradient(135deg, rgba(0, 136, 255, 0.8), rgba(0, 85, 204, 0.8));
             color: white;
-            border: 2px solid #00ffff;
             width: 50px;
             height: 50px;
-            border-radius: 3px;
             cursor: pointer;
             font-size: 24px;
             display: flex;
@@ -622,7 +616,6 @@
                             <div class="game-title">Throttle Up</div>
                             <div class="game-type">Racing Game</div>
                         </div>
-                        <div class="game-image">
                             <div class="carousel" id="carousel1">
                                 <div class="carousel-container">
                                     <div class="carousel-slides" id="slides1">
@@ -648,15 +641,10 @@
                                         </div>
                                     </div>
                                     <div class="carousel-controls">
-                                        <button class="carousel-btn" onclick="previousSlide('carousel1')">
-                                            <svj viewBox="0 0 49 80" fill = none xmlns="http://www.w3.org/2000/svg"></svj>
-                                        </button>
-                                        <button class="carousel-btn" onclick="nextSlide('carousel1')">
-                                            <svj viewBox="0 0 49 79" fill = none xmlns="http://www.w3.org/2000/svg"></svj>
-                                        </button>
+                                        <button class="carousel-btn" onclick="previousSlide('carousel1')"><</button>
+                                        <button class="carousel-btn" onclick="nextSlide('carousel1')">></button>
                                     </div>
                             </div>
-                        </div>
                         <div class="game-content">
                             <p class="game-description">
                                 Arcade-style racing game with advanced vehicle physics using Unreal's Chaos system. Complete race logic with checkpoints, lap tracking, and dynamic difficulty scaling.
