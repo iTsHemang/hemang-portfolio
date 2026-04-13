@@ -563,6 +563,10 @@
             pointer-events: auto;
         }
 
+		.carousel: hover .carousel-slide video {
+    		autoplay: true;
+		}
+
         .carousel-btn {
             width: 40px;
             height: 40px;
@@ -739,7 +743,7 @@
                             <div class="carousel-container">
                                 <div class="carousel-slides" id="slides1">
                                     <div class="carousel-slide"><img src="TU/TU_B.png" alt="Banner"></div>
-                                    <div class="carousel-slide"><video controls muted autoplay><source src="TU/TU_V.mp4" type="video/mp4"></video></div>
+                                    <div class="carousel-slide"><video controls muted><source src="TU/TU_V.mp4" type="video/mp4"></video></div>
                                     <div class="carousel-slide"><img src="TU/TU_1.png" alt="Screenshot 1"></div>
                                     <div class="carousel-slide"><img src="TU/TU_2.png" alt="Screenshot 2"></div>
                                     <div class="carousel-slide"><img src="TU/TU_3.png" alt="Screenshot 3"></div>
@@ -784,7 +788,7 @@
                         <div class="carousel" id="carousel2">
                             <div class="carousel-container">
                                 <div class="carousel-slides" id="slides2">
-                                    <div class="carousel-slide"><video controls muted autoplay><source src="MC/MC_SS.mp4" type="video/mp4"></video></div>
+                                    <div class="carousel-slide"><video controls muted><source src="MC/MC_SS.mp4" type="video/mp4"></video></div>
                                 </div>
                             </div>
                         </div>
@@ -817,7 +821,7 @@
                         <div class="carousel" id="carousel3">
                             <div class="carousel-container">
                                 <div class="carousel-slides" id="slides3">
-                                    <div class="carousel-slide"><video controls muted autoplay><source src="MC/MC_Grp.mp4" type="video/mp4"></video></div>
+                                    <div class="carousel-slide"><video controls muted><source src="MC/MC_Grp.mp4" type="video/mp4"></video></div>
                                 </div>
                             </div>
                         </div>
@@ -851,7 +855,7 @@
                         <div class="carousel" id="carousel4">
                             <div class="carousel-container">
                                 <div class="carousel-slides" id="slides4">
-                                    <div class="carousel-slide"><video controls muted autoplay><source src="MC/MC_MI.mp4" type="video/mp4"></video></div>
+                                    <div class="carousel-slide"><video controls muted><source src="MC/MC_MI.mp4" type="video/mp4"></video></div>
                                 </div>
                             </div>
                         </div>
@@ -885,7 +889,7 @@
                         <div class="carousel" id="carousel5">
                             <div class="carousel-container">
                                 <div class="carousel-slides" id="slides5">
-                                    <div class="carousel-slide"><video controls muted autoplay><source src="MC/MC_Com.mp4" type="video/mp4"></video></div>
+                                    <div class="carousel-slide"><video controls muted><source src="MC/MC_Com.mp4" type="video/mp4"></video></div>
                                 </div>
                             </div>
                         </div>
@@ -926,7 +930,7 @@
                             <div class="carousel-container">
                                 <div class="carousel-slides" id="slides6">
                                     <div class="carousel-slide"><img src="BL/BL_B.png" alt="Banner"></div>
-                                    <div class="carousel-slide"><video controls muted autoplay><source src="BL/BL_V.mp4" type="video/mp4"></video></div>
+                                    <div class="carousel-slide"><video controls muted><source src="BL/BL_V.mp4" type="video/mp4"></video></div>
                                     <div class="carousel-slide"><img src="BL/BL_1.png" alt="Screenshot 1"></div>
                                     <div class="carousel-slide"><img src="BL/BL_2.png" alt="Screenshot 2"></div>
 									<div class="carousel-slide"><img src="BL/BL_3.png" alt="Screenshot 2"></div>
@@ -970,7 +974,7 @@
                             <div class="carousel-container">
                                 <div class="carousel-slides" id="slides7">
                                     <div class="carousel-slide"><img src="PS/PS_B.png" alt="Banner"></div>
-                                    <div class="carousel-slide"><video controls muted autoplay><source src="PS/PS__V.mp4" type="video/mp4"></video></div>
+                                    <div class="carousel-slide"><video controls muted><source src="PS/PS__V.mp4" type="video/mp4"></video></div>
                                     <div class="carousel-slide"><img src="PS/PS_1.png" alt="Screenshot 1"></div>
                                     <div class="carousel-slide"><img src="PS/PS_2.png" alt="Screenshot 2"></div>
 									<div class="carousel-slide"><img src="PS/PS_3.png" alt="Screenshot 2"></div>
@@ -1016,7 +1020,7 @@
                             <div class="carousel-container">
                                 <div class="carousel-slides" id="slides8">
                                     <div class="carousel-slide"><img src="SW/SW_B.png" alt="Banner"></div>
-                                    <div class="carousel-slide"><video controls muted autoplay><source src="SW/SW_V.mp4" type="video/mp4"></video></div>
+                                    <div class="carousel-slide"><video controls muted><source src="SW/SW_V.mp4" type="video/mp4"></video></div>
                                     <div class="carousel-slide"><img src="SW/SW_1.png" alt="Screenshot 1"></div>
                                     <div class="carousel-slide"><img src="SW/SW_2.png" alt="Screenshot 2"></div>
 									<div class="carousel-slide"><img src="SW/SW_3.png" alt="Screenshot 2"></div>
@@ -1133,6 +1137,18 @@
             const currentIndex = parseInt(carousel.dataset.current || 0);
             goToSlide(carouselId, currentIndex - 1);
         }
+
+		document.querySelectorAll('.carousel').forEach(carousel => {
+    		carousel.addEventListener('mouseenter', function() {
+        		const video = this.querySelector('video');
+        		if (video) video.play();
+   	 		});
+    
+  	  		carousel.addEventListener('mouseleave', function() {
+        		const video = this.querySelector('video');
+        		if (video) video.pause();
+    		});
+		});
     </script>
 </body>
 </html>
