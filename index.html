@@ -1101,10 +1101,17 @@
 
             // Auto-advance carousel every 5 seconds
             setInterval(() => {
-                const currentIndex = parseInt(carousel.dataset.current || 0);
-                let nextIndex = (currentIndex + 1) % slideCount;
-                goToSlide('carousel' + num, nextIndex);
-            }, 5000);
+    			for (let i = 1; i <= 8; i++) {
+        			const carousel = document.getElementById('carousel' + i);
+        			if (carousel) {
+            			const currentIndex = parseInt(carousel.dataset.current || 0);
+            			const slides = carousel.querySelector('.carousel-slides');
+            			const slideCount = slides.children.length;
+            			let nextIndex = (currentIndex + 1) % slideCount;
+            			goToSlide('carousel' + i, nextIndex);
+        			}
+    			}
+			}, 5000);
 
             carousel.dataset.current = 0;
         }
