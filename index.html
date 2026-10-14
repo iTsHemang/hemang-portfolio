@@ -413,6 +413,16 @@
             background: #5c8a2a;
             color: white;
         }
+		
+		.source-btn {
+            background: #1b6fae;
+            color: #ffffff;
+        }
+
+        .source-btn:hover {
+            background: #2588cf;
+            color: #ffffff;
+        }
 
         /* SKILLS SECTION */
         .skills-section {
@@ -647,10 +657,6 @@
         <div class="container">
             <h1>HEMANG CHUDASAMA</h1>
             <p>Game Programmer • Unreal Engine • C++</p>
-            <div class="header-buttons">
-                <a href="mailto:hemangdchudasama@gmail.com" class="btn-primary">Contact Me</a>
-                <a href="https://linkedin.com/in/hemangchudasama" target="_blank" class="btn-primary">LinkedIn</a>
-            </div>
         </div>
     </div>
 
@@ -672,7 +678,7 @@
                 </div>
                 <div class="stats-box">
                     <div class="stat-item">
-                        <div class="stat-number">5</div>
+                        <div class="stat-number">7</div>
                         <div class="stat-label">Unreal Engine<br>Projects</div>
                     </div>
                     <div class="stat-item">
@@ -711,6 +717,8 @@
                         <li>Progression Systems</li>
                         <li>UI/UX Implementation</li>
                         <li>Interaction Systems</li>
+                        <li>Procedural Generation</li>
+                        <li>Player & Input Systems</li>
                     </ul>
                 </div>
                 <div class="skill-box">
@@ -721,6 +729,8 @@
                         <li>Systems Architecture</li>
                         <li>Git & Version Control</li>
                         <li>Problem Solving</li>
+                        <li>Object Pooling</li>
+                        <li>Asynchronous Asset Loading</li>
                     </ul>
                 </div>
             </div>
@@ -775,6 +785,84 @@
                             </div>
                             <div class="game-links">
                                 <a href="https://hemangdc.itch.io/throttle-up" class="link-btn">Play on itch.io</a>
+                            </div>
+                        </div>
+                    </div>
+					
+					<!-- Football Game -->
+                    <div class="game-card">
+                        <div class="game-header">
+                            <div class="game-title">Football Game</div>
+                            <div class="game-type">Local Multiplayer Sports Game</div>
+                        </div>
+                        <div class="carousel" id="carousel2">
+                            <div class="carousel-container">
+                                <div class="carousel-slides" id="slides2">
+                                    <div class="carousel-slide"><video controls muted><source src="PRT/PRT_FB.mp4" type="video/mp4"></video></div>
+                                </div>
+                            </div>
+                            <div class="carousel-indicators" id="indicators2"></div>
+                        </div>
+                        <div class="game-content">
+                            <p class="game-description">
+                                A local multiplayer football game built in Unreal Engine 5 with C++. Features top-down player movement, a physics-based ball, passing and shooting, player switching, goal detection, and match restart flow.
+                            </p>
+                            <div class="game-meta">
+                                <span class="meta-badge">Unreal Engine 5</span>
+                                <span class="meta-badge">C++</span>
+                                <span class="meta-badge">Blueprints</span>
+                                <span class="platform-badge">Local Multiplayer</span>
+                            </div>
+                            <div class="game-systems">
+                                <div class="systems-title">Core Systems</div>
+                                <div class="systems-tags">
+                                    <span class="system-tag">Player Controls</span>
+                                    <span class="system-tag">Ball Physics</span>
+                                    <span class="system-tag">Passing & Shooting</span>
+                                    <span class="system-tag">Match Flow</span>
+                                </div>
+                            </div>
+                            <div class="game-links">
+                                <a href="https://github.com/iTsHemang/Football-Game" class="link-btn source-btn" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Runner Game -->
+                    <div class="game-card">
+                        <div class="game-header">
+                            <div class="game-title">Runner Game</div>
+                            <div class="game-type">Endless Runner</div>
+                        </div>
+                        <div class="carousel" id="carousel3">
+                            <div class="carousel-container">
+                                <div class="carousel-slides" id="slides3">
+                                    <div class="carousel-slide"><video controls muted><source src="PRT/PRT_RNR.mp4" type="video/mp4"></video></div>
+                                </div>
+                            </div>
+                            <div class="carousel-indicators" id="indicators3"></div>
+                        </div>
+                        <div class="game-content">
+                            <p class="game-description">
+                                An endless runner built in Unreal Engine 5.7 using C++ and Blueprints, with procedural gameplay, two environments, data-driven configuration, reusable object pooling, asynchronous asset loading, device tier detection, and Android touch controls.
+                            </p>
+                            <div class="game-meta">
+                                <span class="meta-badge">Unreal Engine 5.7</span>
+                                <span class="meta-badge">C++</span>
+                                <span class="meta-badge">Blueprints</span>
+                                <span class="platform-badge">Windows & Android</span>
+                            </div>
+                            <div class="game-systems">
+                                <div class="systems-title">Core Systems</div>
+                                <div class="systems-tags">
+                                    <span class="system-tag">Procedural Runner</span>
+                                    <span class="system-tag">Object Pooling</span>
+                                    <span class="system-tag">Async Loading</span>
+                                    <span class="system-tag">Touch Controls</span>
+                                </div>
+                            </div>
+                            <div class="game-links">
+                                <a href="https://github.com/iTsHemang/RunnerGame" class="link-btn source-btn" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -842,6 +930,9 @@
                                     <span class="system-tag">Rope Physics</span>
                                     <span class="system-tag">Latching</span>
                                 </div>
+                            </div>
+							<div class="game-links">
+                                <a href="https://github.com/iTsHemang/Grappling" class="link-btn source-btn" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -1067,10 +1158,9 @@
                 I'm actively looking for opportunities to build great games. Let's talk about your project or position.
             </p>
             <div class="contact-buttons">
-                <a href="/cdn-cgi/l/email-protection#f69e939b97989192959e83929785979b97b6919b979f9ad895999b" class="contact-btn">Email</a>
+                <a href="mailto:hemangdchudasama@gmail.com" class="contact-btn">Email</a>
                 <a href="https://linkedin.com/in/hemangchudasama" target="_blank" class="contact-btn">LinkedIn</a>
                 <a href="https://hemangdc.itch.io/" target="_blank" class="contact-btn">Itch.io</a>
-                <a href="tel:+9195109343                <a href="tel:+919510934365" class="contact-btn">Call</a>
             </div>
         </div>
     </div>
